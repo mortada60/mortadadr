@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>طلب خدمات انستقرام</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #833ab4;
+      color: white;
+      text-align: center;
+      padding: 30px 10px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #fff;
+      padding: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input, select, textarea {
+      margin-bottom: 15px;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      padding: 14px;
+      background-color: #833ab4;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #6e2d97;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>طلب خدمات انستقرام</h1>
+  </header>
+
+  <div class="container">
+    <h2>اختر الخدمة واملأ بياناتك</h2>
+    <form action="send.php" method="POST">
+      <input type="text" name="name" placeholder="الاسم الكامل" required>
+      <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+
+      <select name="service" required>
+        <option value="">اختر الخدمة</option>
+        <option value="فك مخالفات الانستقرام">فك مخالفات الانستقرام</option>
+        <option value="استرجاع حسابات الانستقرام">استرجاع حسابات الانستقرام</option>
+        <option value="زيادة متابعين الانستقرام">زيادة متابعين الانستقرام</option>
+      </select>
+
+      <textarea name="details" rows="4" placeholder="أدخل تفاصيل إضافية إن وجدت"></textarea>
+
+      <button type="submit">إرسال الطلب</button>
+    </form>
+  </div>
+
+</body>
+</html>
