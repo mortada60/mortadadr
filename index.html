@@ -4,135 +4,313 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>موقع خدمات التواصل الاجتماعي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Cairo', sans-serif;
-      background: linear-gradient(to bottom right, #f9f9f9, #ece4f0);
+      background: url('https://png.pngtree.com/background/20210716/original/pngtree-blue-tech-electronic-circuit-line-background-picture-image_1356200.jpg') no-repeat center center fixed;
+      background-size: cover;
       margin: 0;
       padding: 0;
+      animation: fadeInBody 1s ease-in-out;
+      direction: rtl;
     }
+    @keyframes fadeInBody { from { opacity: 0; } to { opacity: 1; } }
     header {
-      background-color: #6a1b9a;
+      background-color: rgba(106, 27, 154, 0.9);
       color: white;
       text-align: center;
       padding: 40px 10px;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 15px;
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
-    }
-    .gallery img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: relative;
+      animation: slideDown 1s ease-out;
     }
     .container {
-      max-width: 700px;
+      max-width: 900px;
       margin: 50px auto;
-      background-color: #fff;
-      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 50px 30px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      border-radius: 15px;
+      border-radius: 20px;
+      animation: fadeInUp 1s ease;
     }
-    h2 {
+    .service-box {
+      background: linear-gradient(135deg, #f48fb1, #ce93d8);
+      border-radius: 20px;
+      padding: 30px;
       text-align: center;
-      color: #4a148c;
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+      cursor: pointer;
+      margin-bottom: 20px;
     }
-    form {
+    .service-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      background: linear-gradient(135deg, #ab47bc, #8e24aa);
+    }
+    .service-icon {
+      font-size: 36px;
+      margin-bottom: 14px;
+      display: block;
+      animation: bounce 1s infinite alternate;
+    }
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-5px); }
+    }
+    .cart {
+      margin: 50px auto;
+      max-width: 900px;
+      background: rgba(255,255,255,0.95);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+    .cart h4 {
+      margin-top: 0;
+      color: #6a1b9a;
+      text-align: center;
+    }
+    .cart-item {
+      margin: 5px 0;
+      padding: 5px 10px;
+      background-color: #f3e5f5;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+    .cart-item:hover {
+      background-color: #e1bee7;
+    }
+    .cart-form {
+      margin-top: 15px;
       display: flex;
       flex-direction: column;
+      gap: 8px;
     }
-    input, select, textarea {
-      margin-bottom: 20px;
-      padding: 15px;
-      font-size: 16px;
-      border: 1px solid #bbb;
-      border-radius: 8px;
+    .cart-form input,
+    .cart-form textarea {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      transition: border-color 0.3s;
     }
-    button {
-      padding: 16px;
+    .cart-form input:focus,
+    .cart-form textarea:focus {
+      border-color: #6a1b9a;
+      outline: none;
+    }
+    .cart-form button {
       background-color: #6a1b9a;
       color: white;
+      padding: 10px;
       border: none;
-      font-size: 18px;
-      border-radius: 8px;
+      border-radius: 6px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s, transform 0.2s;
     }
-    button:hover {
-      background-color: #4a148c;
+    .cart-form button:hover {
+      background-color: #4a0072;
+      transform: scale(1.03);
     }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #6a1b9a;
+    .telegram-floating {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 9999;
+      background-color: #0088cc;
       color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    .testimonials {
+      background: rgba(255, 255, 255, 0.9);
+      margin: 50px auto;
+      padding: 30px;
+      max-width: 900px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      animation: fadeInUp 1s ease-in-out;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .testimonial {
+      background: #f3e5f5;
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      animation: floatTestimonial 3s ease-in-out infinite;
+    }
+    @keyframes floatTestimonial {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
+    }
+    .testimonial img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .testimonial strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #6a1b9a;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>موقع طلب خدمات التواصل الاجتماعي</h1>
+    <h1>خدمات التواصل الاجتماعي</h1>
   </header>
 
-  <div class="container">
-    <h2>اختر الخدمة واملأ بياناتك</h2>
-    <form action="send.php" method="POST">
-      <input type="text" name="name" placeholder="الاسم الكامل" required>
-      <input type="email" name="email" placeholder="البريد الإلكتروني" required>
-
-      <select name="service" required>
-        <option value="">اختر الخدمة</option>
-        <option value="فك مخالفات الانستقرام">فك مخالفات الانستقرام</option>
-        <option value="استرجاع حسابات الانستقرام">استرجاع حسابات الانستقرام</option>
-        <option value="زيادة متابعين الانستقرام">زيادة متابعين الانستقرام</option>
-        <option value="زيادة لايكات انستقرام">زيادة لايكات انستقرام</option>
-        <option value="مشاهدات ستوري">مشاهدات ستوري</option>
-        <option value="تفعيل الحساب بالعلامة الزرقاء">تفعيل الحساب بالعلامة الزرقاء</option>
-        <option value="متابعين سناب شات">متابعين سناب شات</option>
-        <option value="مشاهدات يوتيوب">مشاهدات يوتيوب</option>
-        <option value="اشتراكات تيليجرام">اشتراكات تيليجرام</option>
-        <option value="تعليقات تلقائية">تعليقات تلقائية</option>
-        <option value="حملات ترويجية">حملات ترويجية</option>
-        <option value="تحسين ظهور الحساب">تحسين ظهور الحساب</option>
-        <option value="زيادة مشاهدات TikTok">زيادة مشاهدات TikTok</option>
-        <option value="زيادة متابعين TikTok">زيادة متابعين TikTok</option>
-        <option value="تفاعل تلقائي للمنشورات">تفاعل تلقائي للمنشورات</option>
-        <option value="رسائل جماعية على الواتساب">رسائل جماعية على الواتساب</option>
-        <option value="تصميم هوية بصرية">تصميم هوية بصرية</option>
-        <option value="إعلانات مدفوعة">إعلانات مدفوعة</option>
-        <option value="تحليل الحسابات">تحليل الحسابات</option>
-        <option value="خدمة دعم تقني للحسابات">خدمة دعم تقني للحسابات</option>
-      </select>
-
-      <textarea name="details" rows="5" placeholder="أدخل تفاصيل إضافية إن وجدت"></textarea>
-
+  <div class="cart" id="cart">
+    <h4>سلة الطلب</h4>
+    <div id="cartItems"></div>
+    <form action="mailto:mrtdygt2@gmail.com" method="POST" enctype="text/plain" class="cart-form">
+      <input type="hidden" name="order" id="orderInput">
+      <label>العدد:</label>
+      <input type="number" name="quantity" required>
+      <label>تفاصيل إضافية:</label>
+      <textarea name="details" rows="3"></textarea>
       <button type="submit">إرسال الطلب</button>
     </form>
   </div>
 
-  <section class="gallery">
-    <!-- عرض صور للأعمال البرمجية -->
-    <img src="https://via.placeholder.com/300x200?text=مشروع+1" alt="مشروع 1">
-    <img src="https://via.placeholder.com/300x200?text=مشروع+2" alt="مشروع 2">
-    <img src="https://via.placeholder.com/300x200?text=مشروع+3" alt="مشروع 3">
-    <img src="https://via.placeholder.com/300x200?text=مشروع+4" alt="مشروع 4">
-    <img src="https://via.placeholder.com/300x200?text=مشروع+5" alt="مشروع 5">
-    <img src="https://via.placeholder.com/300x200?text=مشروع+6" alt="مشروع 6">
-    <img src="https://via.placeholder.com/300x200?text=مشروع+7" alt="مشروع 7">
-    <img src="https://via.placeholder.com/300x200?text=مشروع+8" alt="مشروع 8">
-    <img src="https://via.placeholder.com/300x200?text=مشروع+9" alt="مشروع 9">
-    <img src="https://via.placeholder.com/300x200?text=مشروع+10" alt="مشروع 10">
-  </section>
+  <div class="container" id="servicesContainer"></div>
 
-  <footer>
-    &copy; 2025 جميع الحقوق محفوظة - موقع خدمات التواصل الاجتماعي
-  </footer>
+  <div class="testimonials">
+    <div class="testimonial">
+      <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Ahmed">
+      <strong>أحمد الجبري</strong>
+      خدمة رائعة وسريعة، شكراً لكم!
+    </div>
+    <div class="testimonial">
+      <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Mona">
+      <strong>منى الخالدي</strong>
+      أنصح بها الجميع، جودة عالية وتعامل ممتاز.
+    </div>
+    <div class="testimonial">
+      <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Sami">
+      <strong>سامي الزهراني</strong>
+      تم تنفيذ طلبي بسرعة ودقة، سأطلب مجددًا.
+    </div>
+    <div class="testimonial">
+      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Rahaf">
+      <strong>رهف العتيبي</strong>
+      أفضل موقع لشراء خدمات التواصل الاجتماعي.
+    </div>
+    <div class="testimonial">
+      <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="Khaled">
+      <strong>خالد العنزي</strong>
+      تعامل راقي وأسعار مناسبة جدًا.
+    </div>
+    <div class="testimonial">
+      <img src="https://randomuser.me/api/portraits/men/66.jpg" alt="Abdullah">
+      <strong>عبدالله المنصور</strong>
+      وصلتني الخدمة بسرعة وجودة عالية، شكرًا لكم.
+    </div>
+    <div class="testimonial">
+      <img src="https://randomuser.me/api/portraits/women/77.jpg" alt="Noura">
+      <strong>نورة الشهري</strong>
+      موقع سهل ومرن وخدمة العملاء ممتازة.
+    </div>
+    <div class="testimonial">
+      <img src="https://randomuser.me/api/portraits/men/88.jpg" alt="Fahad">
+      <strong>فهد الحربي</strong>
+      أطلب دائمًا من هذا الموقع، موثوق جدًا.
+    </div>
+    <div class="testimonial">
+      <img src="https://randomuser.me/api/portraits/women/99.jpg" alt="Sara">
+      <strong>سارة العتيبي</strong>
+      جودة الخدمة تستحق الثناء، كل شيء مثالي.
+    </div>
+    <div class="testimonial">
+      <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Khaled">
+      <strong>خالد الناصر</strong>
+      الأسعار ممتازة مقارنة بالسوق، أنصح به للجميع.
+    </div>
+  </div>
 
+  <a href="https://t.me/your_telegram_username" target="_blank" class="telegram-floating">
+    <i class="fab fa-telegram-plane"></i>
+  </a>
+
+  <script>
+    const services = [
+      { icon: 'fab fa-instagram', title: 'زيادة متابعين إنستقرام' },
+      { icon: 'fab fa-facebook', title: 'زيادة لايكات فيسبوك' },
+      { icon: 'fab fa-youtube', title: 'مشاهدات يوتيوب' },
+      { icon: 'fab fa-twitter', title: 'تغريدات تويتر' },
+      { icon: 'fab fa-tiktok', title: 'مشتركين تيك توك' },
+      { icon: 'fab fa-telegram', title: 'زيادة أعضاء تليجرام' },
+      { icon: 'fas fa-lock', title: 'استرجاع حساب إنستقرام' },
+      { icon: 'fas fa-unlock', title: 'فك مخالفات إنستقرام' },
+      { icon: 'fab fa-instagram', title: 'تعليقات إنستقرام' },
+      { icon: 'fab fa-facebook', title: 'تفاعل منشورات فيسبوك' },
+      { icon: 'fab fa-youtube', title: 'لايكات يوتيوب' },
+      { icon: 'fab fa-twitter', title: 'إعجابات تويتر' },
+      { icon: 'fab fa-tiktok', title: 'مشاهدات تيك توك' },
+      { icon: 'fab fa-telegram', title: 'مشاهدات تليجرام' },
+      { icon: 'fab fa-instagram', title: 'مشاهدات إنستقرام' },
+      { icon: 'fab fa-facebook', title: 'مشتركين جروبات' },
+      { icon: 'fab fa-twitter', title: 'إعادة تغريد تلقائي' },
+      { icon: 'fab fa-youtube', title: 'تعليقات يوتيوب' },
+      { icon: 'fab fa-tiktok', title: 'تعليقات تيك توك' },
+      { icon: 'fab fa-telegram', title: 'تفاعلات قنوات تليجرام' },
+    ];
+
+    const servicesContainer = document.getElementById('servicesContainer');
+    const cartItems = document.getElementById('cartItems');
+    const orderInput = document.getElementById('orderInput');
+    let cart = [];
+
+    services.forEach(service => {
+      const div = document.createElement('div');
+      div.className = 'service-box';
+      div.innerHTML = `
+        <span class="service-icon"><i class="${service.icon}"></i></span>
+        <h3>${service.title}</h3>
+      `;
+      div.addEventListener('click', () => addToCart(service.title));
+      servicesContainer.appendChild(div);
+    });
+
+    function addToCart(serviceName) {
+      cart.push(serviceName);
+      updateCart();
+    }
+
+    function updateCart() {
+      cartItems.innerHTML = '';
+      cart.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.textContent = `${index + 1}. ${item}`;
+        cartItems.appendChild(div);
+      });
+      orderInput.value = cart.join(', ');
+    }
+  </script>
 </body>
 </html>
