@@ -3,61 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>طلب خدمات انستقرام</title>
+  <title>موقع خدمات التواصل الاجتماعي</title>
   <style>
     body {
       font-family: 'Cairo', sans-serif;
-      background-color: #f9f9f9;
+      background: linear-gradient(to bottom right, #f9f9f9, #ece4f0);
       margin: 0;
       padding: 0;
     }
     header {
-      background-color: #833ab4;
+      background-color: #6a1b9a;
       color: white;
       text-align: center;
-      padding: 30px 10px;
+      padding: 40px 10px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     .container {
-      max-width: 600px;
-      margin: 40px auto;
+      max-width: 700px;
+      margin: 50px auto;
       background-color: #fff;
-      padding: 30px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-radius: 15px;
     }
     h2 {
       text-align: center;
-      color: #333;
+      color: #4a148c;
     }
     form {
       display: flex;
       flex-direction: column;
     }
     input, select, textarea {
-      margin-bottom: 15px;
-      padding: 12px;
+      margin-bottom: 20px;
+      padding: 15px;
       font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+      border: 1px solid #bbb;
+      border-radius: 8px;
     }
     button {
-      padding: 14px;
-      background-color: #833ab4;
+      padding: 16px;
+      background-color: #6a1b9a;
       color: white;
       border: none;
-      font-size: 16px;
-      border-radius: 6px;
+      font-size: 18px;
+      border-radius: 8px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
     button:hover {
-      background-color: #6e2d97;
+      background-color: #4a148c;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #6a1b9a;
+      color: white;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>طلب خدمات انستقرام</h1>
+    <h1>موقع طلب خدمات التواصل الاجتماعي</h1>
   </header>
 
   <div class="container">
@@ -71,13 +91,48 @@
         <option value="فك مخالفات الانستقرام">فك مخالفات الانستقرام</option>
         <option value="استرجاع حسابات الانستقرام">استرجاع حسابات الانستقرام</option>
         <option value="زيادة متابعين الانستقرام">زيادة متابعين الانستقرام</option>
+        <option value="زيادة لايكات انستقرام">زيادة لايكات انستقرام</option>
+        <option value="مشاهدات ستوري">مشاهدات ستوري</option>
+        <option value="تفعيل الحساب بالعلامة الزرقاء">تفعيل الحساب بالعلامة الزرقاء</option>
+        <option value="متابعين سناب شات">متابعين سناب شات</option>
+        <option value="مشاهدات يوتيوب">مشاهدات يوتيوب</option>
+        <option value="اشتراكات تيليجرام">اشتراكات تيليجرام</option>
+        <option value="تعليقات تلقائية">تعليقات تلقائية</option>
+        <option value="حملات ترويجية">حملات ترويجية</option>
+        <option value="تحسين ظهور الحساب">تحسين ظهور الحساب</option>
+        <option value="زيادة مشاهدات TikTok">زيادة مشاهدات TikTok</option>
+        <option value="زيادة متابعين TikTok">زيادة متابعين TikTok</option>
+        <option value="تفاعل تلقائي للمنشورات">تفاعل تلقائي للمنشورات</option>
+        <option value="رسائل جماعية على الواتساب">رسائل جماعية على الواتساب</option>
+        <option value="تصميم هوية بصرية">تصميم هوية بصرية</option>
+        <option value="إعلانات مدفوعة">إعلانات مدفوعة</option>
+        <option value="تحليل الحسابات">تحليل الحسابات</option>
+        <option value="خدمة دعم تقني للحسابات">خدمة دعم تقني للحسابات</option>
       </select>
 
-      <textarea name="details" rows="4" placeholder="أدخل تفاصيل إضافية إن وجدت"></textarea>
+      <textarea name="details" rows="5" placeholder="أدخل تفاصيل إضافية إن وجدت"></textarea>
 
       <button type="submit">إرسال الطلب</button>
     </form>
   </div>
+
+  <section class="gallery">
+    <!-- عرض صور للأعمال البرمجية -->
+    <img src="https://via.placeholder.com/300x200?text=مشروع+1" alt="مشروع 1">
+    <img src="https://via.placeholder.com/300x200?text=مشروع+2" alt="مشروع 2">
+    <img src="https://via.placeholder.com/300x200?text=مشروع+3" alt="مشروع 3">
+    <img src="https://via.placeholder.com/300x200?text=مشروع+4" alt="مشروع 4">
+    <img src="https://via.placeholder.com/300x200?text=مشروع+5" alt="مشروع 5">
+    <img src="https://via.placeholder.com/300x200?text=مشروع+6" alt="مشروع 6">
+    <img src="https://via.placeholder.com/300x200?text=مشروع+7" alt="مشروع 7">
+    <img src="https://via.placeholder.com/300x200?text=مشروع+8" alt="مشروع 8">
+    <img src="https://via.placeholder.com/300x200?text=مشروع+9" alt="مشروع 9">
+    <img src="https://via.placeholder.com/300x200?text=مشروع+10" alt="مشروع 10">
+  </section>
+
+  <footer>
+    &copy; 2025 جميع الحقوق محفوظة - موقع خدمات التواصل الاجتماعي
+  </footer>
 
 </body>
 </html>
