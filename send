@@ -1,0 +1,25 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $to = "mrtdygt2@gmail.com"; // البريد المستلم
+    $subject = "طلب خدمة انستقرام";
+
+    $name = htmlspecialchars($_POST["name"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $service = htmlspecialchars($_POST["service"]);
+    $details = htmlspecialchars($_POST["details"]);
+
+    $message = "الاسم: $name\n";
+    $message .= "البريد الإلكتروني: $email\n";
+    $message .= "الخدمة المطلوبة: $service\n";
+    $message .= "تفاصيل إضافية: $details\n";
+
+    $headers = "From: $email\r\n";
+    $headers .= "Reply-To: $email\r\n";
+
+    if (mail($to, $subject, $message, $headers)) {
+        echo "✅ تم إرسال الطلب بنجاح. شكرًا لك!";
+    } else {
+        echo "❌ حدث خطأ أثناء الإرسال. يرجى المحاولة لاحقًا.";
+    }
+}
+?>
